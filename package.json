@@ -1,6 +1,6 @@
 {
   "name": "@pzero24/change-monitor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Typescript library that monitors changes to objects and collections",
   "main": "dist/index.js",
   "scripts": {
