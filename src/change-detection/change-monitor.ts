@@ -1,8 +1,8 @@
 import {IChange} from "./change.interface";
-import {Subject} from "rxjs";
+import {Subject} from "rxjs/internal/Subject";
 
 export class ChangeMonitor implements IChange<any> {
-    onChanged = new Subject();
+    onChanged = new Subject<string>();
     onReset = new Subject<{persisted:boolean}>();
     lastUpdated = new Date();
 

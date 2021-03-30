@@ -1,21 +1,7 @@
 import {IIdentifier} from "./identifier.interface";
 import {ISorter} from "../sort/sorter.interface";
 import {AlphabeticalSorter} from "../sort/alphabetical-sorter";
-
-class ItemIterator<T> implements Iterator<T> {
-    private readonly _items: T[];
-    private _index = 0;
-    constructor(items: T[]) {
-        this._items = [].concat(items);
-    }
-
-    next() {
-        return {
-            value: this._items[this._index++],
-            done: this._index > this._items.length
-        }
-    }
-}
+import {CollectionIterator} from "./collection-iterator";
 
 export class Collection<T extends IIdentifier> {
     protected _items: T[] = [];
@@ -24,7 +10,7 @@ export class Collection<T extends IIdentifier> {
     protected _sorter: ISorter<T> = new AlphabeticalSorter<T>();
 
     [Symbol.iterator](): Iterator<T> {
-        return new ItemIterator<T>(this._items);
+        return new CollectionIterator<T>(this._items);
     }
 
     get length() {
