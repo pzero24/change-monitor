@@ -1,0 +1,26 @@
+{
+  "name": "@pzero24/change-monitor",
+  "version": "1.0.4",
+  "description": "Typescript library that monitors changes to objects and collections",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzero24/change-monitor.git"
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pzero24/change-monitor/issues"
+  },
+  "homepage": "https://github.com/pzero24/change-monitor#readme",
+  "dependencies": {
+    "rxjs": "^6.6.7"
+  },
+  "devDependencies": {}
+}
