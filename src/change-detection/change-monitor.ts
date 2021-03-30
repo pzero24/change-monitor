@@ -41,7 +41,7 @@ export class ChangeMonitor implements IChange<any> {
                     if (this.changedValues.size === 0) {
                         this.onReset.next({persisted: false})
                     }
-                } else if (this.originalValues.has(property) && originalValue !== value && (!this.changedValues.has(property) || changedValue !== value)) {
+                } else if (this.originalValues.has(property) && this.getValueCompare(originalValue) !== this.getValueCompare(value) && (!this.changedValues.has(property) || changedValue !== value)) {
                     this.changedValues.set(property, value);
                     this.onChanged.next(property)
                 }
@@ -49,6 +49,14 @@ export class ChangeMonitor implements IChange<any> {
                 return true;
             }
         });
+    }
+
+    private getValueCompare(value: any) {
+        if (value instanceof Date) {
+            return value.getTime();
+        } else {
+            return value;
+        }
     }
 
     getOriginalValue(field: string) {
